@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/kde-apps.nix
     ];
 
   # Bootloader.
@@ -95,8 +96,8 @@
     description = "Alvaro";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+      # kdePackages.kate
+      # thunderbird
     ];
   };
 

@@ -133,6 +133,9 @@
     flake = "/home/alvaro/nixos"; # sets NH_OS_FLAKE variable for you
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

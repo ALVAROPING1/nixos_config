@@ -101,6 +101,12 @@
       # thunderbird
     ];
   };
+  users.defaultUserShell = pkgs.zsh;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+  };
 
   # Install firefox.
   programs.firefox.enable = true;

@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/kde-apps.nix
+      ./modules/apps.nix
     ];
 
   # Bootloader.
@@ -110,9 +111,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     git
-  #  wget
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
+    kdePackages.breeze.qt5
+    kdePackages.breeze
+    nerd-fonts.caskaydia-cove
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

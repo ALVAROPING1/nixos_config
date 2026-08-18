@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./modules/kde-apps.nix
       ./modules/apps.nix
+      ./modules/fonts.nix
     ];
 
   # Bootloader.
@@ -121,7 +122,6 @@
     kdePackages.breeze-icons
     kdePackages.breeze.qt5
     kdePackages.breeze
-    nerd-fonts.caskaydia-cove
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

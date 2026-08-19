@@ -102,15 +102,6 @@
       # thunderbird
     ];
   };
-  users.defaultUserShell = pkgs.zsh;
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = false;
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -131,13 +122,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/alvaro/nixos"; # sets NH_OS_FLAKE variable for you
-  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [];

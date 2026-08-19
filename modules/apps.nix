@@ -13,6 +13,7 @@
     # onlyoffice-desktopeditors
     vesktop
   ];
+  programs.firefox.enable = true;
 
   # Terminal
   environment.systemPackages = with pkgs; [
@@ -59,4 +60,18 @@
     man-pages
     man-pages-posix
   ];
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/alvaro/nixos"; # sets NH_OS_FLAKE variable for you
+  };
+
+  # Shell
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+  };
 }

@@ -3,8 +3,15 @@
 {
   # GUI
   users.users."alvaro".packages = with pkgs; [
+    gimp
+    inkscape
+    keepassxc
     kitty
+    libreoffice-qt
     mpv
+    obs-studio
+    # onlyoffice-desktopeditors
+    vesktop
   ];
 
   # Terminal
@@ -23,8 +30,10 @@
     fastfetch
     fd
     fzf
+    htop
     hyperfine
     lazygit
+    # nvtopPackages.full
     onefetch
     ripgrep
     samply
@@ -40,6 +49,7 @@
     # Utils
     gcc
     git
+    imagemagick
     nodejs
     stow
     unzip

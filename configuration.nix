@@ -11,6 +11,7 @@
       ./modules/kde-apps.nix
       ./modules/apps.nix
       ./modules/fonts.nix
+      ./modules/docs.nix
     ];
 
   # Bootloader.

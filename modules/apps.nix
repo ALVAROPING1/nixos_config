@@ -56,9 +56,6 @@
     unzip
     wget
     yt-dlp
-    # Man pages
-    man-pages
-    man-pages-posix
   ];
 
   programs.nh = {

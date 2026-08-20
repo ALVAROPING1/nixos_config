@@ -39,20 +39,24 @@
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "es_ES.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_ES.UTF-8";
-    LC_IDENTIFICATION = "es_ES.UTF-8";
-    LC_MEASUREMENT = "es_ES.UTF-8";
-    LC_MONETARY = "es_ES.UTF-8";
-    LC_NAME = "es_ES.UTF-8";
-    LC_NUMERIC = "es_ES.UTF-8";
-    LC_PAPER = "es_ES.UTF-8";
-    LC_TELEPHONE = "es_ES.UTF-8";
-    LC_TIME = "es_ES.UTF-8";
-  };
+  # Select internationalisation properties
+  console.keyMap = "es"; # Configure console keymap
+  i18n =
+    let locale = "es_ES.UTF-8";
+    in {
+      defaultLocale = locale;
+      extraLocaleSettings = {
+        LC_ADDRESS = locale;
+        LC_IDENTIFICATION = locale;
+        LC_MEASUREMENT = locale;
+        LC_MONETARY = locale;
+        LC_NAME = locale;
+        LC_NUMERIC = locale;
+        LC_PAPER = locale;
+        LC_TELEPHONE = locale;
+        LC_TIME = locale;
+      };
+    };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -68,8 +72,6 @@
     variant = "nodeadkeys";
   };
 
-  # Configure console keymap
-  console.keyMap = "es";
   # Console font. Variant format: ter-<codepage><height><style>
   # v32n = all codepages, 32px, normal
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";

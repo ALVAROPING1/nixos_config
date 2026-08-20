@@ -70,6 +70,9 @@
 
   # Configure console keymap
   console.keyMap = "es";
+  # Console font. Variant format: ter-<codepage><height><style>
+  # v32n = all codepages, 32px, normal
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

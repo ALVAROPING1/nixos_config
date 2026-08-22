@@ -12,6 +12,7 @@
       ./modules/apps.nix
       ./modules/fonts.nix
       ./modules/docs.nix
+      ./modules/networking.nix
     ];
 
   # Bootloader.
@@ -27,14 +28,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -102,7 +95,7 @@
   users.users."alvaro" = {
     isNormalUser = true;
     description = "Alvaro";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     packages = with pkgs; [
       # kdePackages.kate
       # thunderbird
@@ -131,17 +124,6 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [];
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

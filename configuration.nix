@@ -58,6 +58,8 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.xserver.excludePackages = [ pkgs.xterm ];
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [ elisa qrca ];
 
   # Configure keymap in X11
   services.xserver.xkb = {

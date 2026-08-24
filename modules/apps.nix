@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, flake_path, ... }:
 
 {
   # GUI
@@ -62,7 +62,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/alvaro/nixos"; # sets NH_OS_FLAKE variable for you
+    flake = flake_path; # sets NH_OS_FLAKE variable for you
   };
 
   # Shell

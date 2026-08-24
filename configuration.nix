@@ -13,6 +13,7 @@
       ./modules/fonts.nix
       ./modules/docs.nix
       ./modules/networking.nix
+      ./modules/autoupgrade.nix
     ];
 
   # Bootloader.

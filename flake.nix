@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
       modules = [
         ./configuration.nix
       ];

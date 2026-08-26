@@ -30,6 +30,7 @@
     eza
     fastfetch
     fd
+    ffmpeg
     fzf
     htop
     hyperfine

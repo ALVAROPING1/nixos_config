@@ -57,6 +57,11 @@
     unzip
     wget
     yt-dlp
+    # Nix
+    deadnix
+    nixd
+    # nixfmt-rs
+    statix
   ];
 
   programs.nh = {

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./kde-apps.nix
+    ./kde.nix
     ./apps.nix
     ./fonts.nix
     ./docs.nix

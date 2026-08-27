@@ -111,10 +111,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    kdePackages.breeze-gtk
-    kdePackages.breeze-icons
-    kdePackages.breeze.qt5
-    kdePackages.breeze
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -10,6 +10,7 @@
       specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
       modules = [
         ./configuration.nix
+        ./modules
       ];
     };
   };

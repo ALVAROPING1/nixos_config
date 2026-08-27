@@ -8,12 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/kde-apps.nix
-      ./modules/apps.nix
-      ./modules/fonts.nix
-      ./modules/docs.nix
-      ./modules/networking.nix
-      ./modules/autoupgrade.nix
     ];
 
   # Bootloader.
@@ -29,28 +23,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
-
-  # Set your time zone.
-  time.timeZone = "Europe/Madrid";
-
-  # Select internationalisation properties
-  console.keyMap = "es"; # Configure console keymap
-  i18n =
-    let locale = "es_ES.UTF-8";
-    in {
-      defaultLocale = locale;
-      extraLocaleSettings = {
-        LC_ADDRESS = locale;
-        LC_IDENTIFICATION = locale;
-        LC_MEASUREMENT = locale;
-        LC_MONETARY = locale;
-        LC_NAME = locale;
-        LC_NUMERIC = locale;
-        LC_PAPER = locale;
-        LC_TELEPHONE = locale;
-        LC_TIME = locale;
-      };
-    };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -94,25 +66,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."alvaro" = {
-    isNormalUser = true;
-    description = "Alvaro";
-    extraGroups = [ "wheel" ]; # Enable `sudo` for the user
-    packages = with pkgs; [
-      # kdePackages.kate
-      # thunderbird
-    ];
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -131,7 +84,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 }

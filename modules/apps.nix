@@ -18,7 +18,6 @@
   # Terminal
   environment.systemPackages = with pkgs; [
     # Editors
-    vim
     neovim
     lua5_1
     luarocks
@@ -50,12 +49,9 @@
     uv
     # Utils
     gcc
-    git
     imagemagick
     nodejs
     stow
-    unzip
-    wget
     yt-dlp
     # Nix
     deadnix

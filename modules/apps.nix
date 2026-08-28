@@ -9,11 +9,16 @@
     kitty
     libreoffice-qt
     mpv
-    obs-studio
     # onlyoffice-desktopeditors
     vesktop
   ];
   programs.firefox.enable = true;
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      input-overlay
+    ];
+  };
 
   # Terminal
   environment.systemPackages = with pkgs; [

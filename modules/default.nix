@@ -9,6 +9,7 @@
     ./docs.nix
     ./networking.nix
     ./autoupgrade.nix
+    ./games.nix
   ];
 
   # Set your time zone.

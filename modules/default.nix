@@ -3,7 +3,7 @@
 {
   imports = [
     ./nix.nix
-    ./kde.nix
+    ./desktop
     ./apps.nix
     ./fonts.nix
     ./docs.nix

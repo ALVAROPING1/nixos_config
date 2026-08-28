@@ -24,6 +24,8 @@
     kdePackages.breeze-icons
     kdePackages.breeze.qt5
     kdePackages.breeze
+    kdePackages.krohnkite
+    kde-rounded-corners
   ];
   programs.partition-manager.enable = true;
 }

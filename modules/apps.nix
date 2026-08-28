@@ -1,4 +1,4 @@
-{ config, pkgs, flake_path, ... }:
+{ config, pkgs, ... }:
 
 {
   # GUI
@@ -59,13 +59,6 @@
     # nixfmt-rs
     statix
   ];
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = flake_path; # sets NH_OS_FLAKE variable for you
-  };
 
   # Shell
   users.defaultUserShell = pkgs.zsh;

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./nix.nix
     ./kde.nix
     ./apps.nix
     ./fonts.nix
@@ -50,9 +51,4 @@
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     initialPassword = "changethis";
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  # Enable flake support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

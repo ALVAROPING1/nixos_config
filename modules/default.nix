@@ -10,6 +10,7 @@
     ./networking.nix
     ./autoupgrade.nix
     ./games.nix
+    ./latex.nix
   ];
 
   # Set your time zone.

@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Bootloader.
   boot.loader = {
     systemd-boot = {
@@ -20,8 +15,6 @@
     efi.canTouchEfiVariables = true;
     timeout = 0;
   };
-
-  networking.hostName = "nixos"; # Define your hostname.
 
   # Console font. Variant format: ter-<codepage><height><style>
   # v32n = all codepages, 32px, normal

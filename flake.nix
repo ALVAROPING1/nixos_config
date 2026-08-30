@@ -10,10 +10,10 @@
   };
 
   outputs = { self, nixpkgs, rust-overlay, ... } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = (import ./lib).genNixOSHosts {
+      inherit inputs;
       specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
       modules = [
-        ./configuration.nix
         ./modules
         ({ ... }: { nixpkgs.overlays = [ rust-overlay.overlays.default ]; })
       ];

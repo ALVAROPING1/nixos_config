@@ -11,13 +11,15 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.systemd-boot.editor = false;
-  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      editor = false;
+      configurationLimit = 16;
+    };
+    efi.canTouchEfiVariables = true;
+    timeout = 0;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 

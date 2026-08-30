@@ -62,6 +62,7 @@
     gnumake
     imagemagick
     nodejs
+    rust-bin.stable.latest.default
     stow
     yt-dlp
     # Nix

@@ -9,6 +9,9 @@
     kitty
     libreoffice-qt
     mpv
+    piper
+    qbittorrent
+    syncthing
     # onlyoffice-desktopeditors
     vesktop
   ];
@@ -41,6 +44,7 @@
     lazygit
     # nvtopPackages.full
     onefetch
+    pandoc
     ripgrep
     samply
     starship
@@ -53,7 +57,9 @@
     python313Packages.pip
     uv
     # Utils
+    borgbackup
     gcc
+    gnumake
     imagemagick
     nodejs
     stow

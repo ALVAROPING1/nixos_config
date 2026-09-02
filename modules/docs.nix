@@ -12,7 +12,8 @@
     man = {
       enable = true;
       # generate manpage index caches to enable searching using `man -k`
-      cache.enable = true;
+      # NOTE: this is slow on each re-build
+      cache.enable = false;
     };
   };
 

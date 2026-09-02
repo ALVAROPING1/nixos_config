@@ -15,7 +15,10 @@
       specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
       modules = [
         ./modules
-        ({ ... }: { nixpkgs.overlays = [ rust-overlay.overlays.default ]; })
+        ({ ... }: { nixpkgs.overlays = [
+          rust-overlay.overlays.default
+          (import ./pkgs/overlay.nix)
+        ]; })
       ];
     };
   };

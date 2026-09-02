@@ -11,6 +11,7 @@
     ./autoupgrade.nix
     ./games.nix
     ./latex.nix
+    ./programs/livesplit-one-druid.nix
   ];
 
   # Set your time zone.

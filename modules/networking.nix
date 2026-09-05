@@ -24,17 +24,19 @@
     # networking.firewall.enable = false;
   };
 
-  services = {
+  specialisation."ssh".configuration = {
+    environment.etc."specialisation".text = "ssh";
     # Enable the OpenSSH daemon
-    openssh = {
-      enable = false;
+    services.openssh = {
+      enable = true;
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
       };
     };
-    resolved.enable = true;
   };
+
+  services.resolved.enable = true;
 
   users.users."alvaro".extraGroups = [ "networkmanager" ];
 

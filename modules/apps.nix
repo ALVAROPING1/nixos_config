@@ -14,6 +14,7 @@
     syncthing
     # onlyoffice-desktopeditors
     vesktop
+    # yubioath-flutter
   ];
   programs.firefox.enable = true;
   programs.obs-studio = {
@@ -21,6 +22,11 @@
     plugins = with pkgs.obs-studio-plugins; [
       input-overlay
     ];
+  };
+  programs.yubikey-manager.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # Terminal

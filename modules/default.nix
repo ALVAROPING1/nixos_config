@@ -14,6 +14,17 @@
     ./programs/livesplit-one-druid.nix
   ];
 
+  # Bootloader.
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      editor = false;
+      configurationLimit = 16;
+    };
+    efi.canTouchEfiVariables = true;
+    timeout = 0;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 

@@ -5,17 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      editor = false;
-      configurationLimit = 16;
-    };
-    efi.canTouchEfiVariables = true;
-    timeout = 0;
-  };
-
   # Console font. Variant format: ter-<codepage><height><style>
   # v32n = all codepages, 32px, normal
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";

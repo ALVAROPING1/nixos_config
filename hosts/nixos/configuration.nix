@@ -10,6 +10,9 @@
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
 
   hardware.wooting.enable = true;
+  profiles = {
+    games.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

@@ -11,7 +11,10 @@
 
   hardware.wooting.enable = true;
   profiles = {
-    games.enable = true;
+    games = {
+      enable = true;
+      osu = true;
+    };
     vm.enable = true;
   };
 

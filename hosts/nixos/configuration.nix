@@ -12,6 +12,7 @@
   hardware.wooting.enable = true;
   profiles = {
     games.enable = true;
+    vm.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

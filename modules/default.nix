@@ -11,6 +11,7 @@
     ./autoupgrade.nix
     ./games.nix
     ./latex.nix
+    ./vm.nix
     ./programs/livesplit-one-druid.nix
   ];
 

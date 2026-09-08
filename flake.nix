@@ -21,12 +21,12 @@
             in
             if e.value == "directory" then (importDir file) else [file])
           (nixpkgs.lib.attrsToList (builtins.readDir dir));
-      in importDir ./modules ++ [
-        ({ ... }: { nixpkgs.overlays = [
+        overlays = [
           rust-overlay.overlays.default
           (import ./pkgs/overlay.nix)
-        ]; })
-      ];
+        ];
+      in importDir ./modules
+        ++ [({ ... }: { nixpkgs = { inherit overlays; }; })];
     };
   };
 }

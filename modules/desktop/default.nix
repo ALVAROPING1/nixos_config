@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./kde.nix ];
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

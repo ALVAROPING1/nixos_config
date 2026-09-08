@@ -1,20 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./nix.nix
-    ./desktop
-    ./apps.nix
-    ./fonts.nix
-    ./docs.nix
-    ./networking.nix
-    ./autoupgrade.nix
-    ./games.nix
-    ./latex.nix
-    ./vm.nix
-    ./programs/livesplit-one-druid.nix
-  ];
-
   # Bootloader.
   boot.loader = {
     systemd-boot = {

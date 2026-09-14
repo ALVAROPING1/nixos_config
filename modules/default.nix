@@ -53,4 +53,6 @@
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     initialPassword = "changethis";
   };
+
+  security.polkit.enable = true;
 }

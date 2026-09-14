@@ -70,6 +70,7 @@
     nodejs
     rust-bin.stable.latest.default
     stow
+    xclip
     yt-dlp
     # Nix
     deadnix

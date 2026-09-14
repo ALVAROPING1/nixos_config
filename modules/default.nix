@@ -37,11 +37,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    file
+    git
+    time
+    unzip
     vim
     wget
-    git
-    unzip
-    time
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

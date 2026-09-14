@@ -7,9 +7,13 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, ... } @ inputs: {
+  outputs = { self, nixpkgs, ... } @ inputs: {
     nixosConfigurations = (import ./lib).genNixOSHosts {
       inherit inputs;
       specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
@@ -22,11 +26,13 @@
             if e.value == "directory" then (importDir file) else [file])
           (nixpkgs.lib.attrsToList (builtins.readDir dir));
         overlays = [
-          rust-overlay.overlays.default
+          inputs.rust-overlay.overlays.default
           (import ./pkgs/overlay.nix)
         ];
-      in importDir ./modules
-        ++ [({ ... }: { nixpkgs = { inherit overlays; }; })];
+      in importDir ./modules ++ [
+        ({ ... }: { nixpkgs = { inherit overlays; }; })
+        inputs.nix-index-database.nixosModules.default
+      ];
     };
   };
 }

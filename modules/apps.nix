@@ -85,4 +85,5 @@
     enable = true;
     enableCompletion = false;
   };
+  programs.nix-index.enable = true;
 }

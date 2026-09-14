@@ -3,16 +3,19 @@
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    # Enable flake support
-    experimental-features = [ "nix-command" "flakes" ];
-    # Extra binary caches
-    substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+  nix = {
+    settings = {
+      # Enable flake support
+      experimental-features = [ "nix-command" "flakes" ];
+      # Extra binary caches
+      substituters = [
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+    optimise.automatic = true;
   };
 
   # Enable nix helpter and garbage collection

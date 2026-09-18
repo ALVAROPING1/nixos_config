@@ -13,26 +13,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: {
-    nixosConfigurations = (import ./lib).genNixOSHosts {
-      inherit inputs;
-      specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
-      modules = let
-        importDir = dir: builtins.concatMap
-          (e:
-            let
-              file = "${dir}/${e.name}";
-            in
-            if e.value == "directory" then (importDir file) else [file])
-          (nixpkgs.lib.attrsToList (builtins.readDir dir));
-        overlays = [
-          inputs.rust-overlay.overlays.default
-          (import ./pkgs/overlay.nix)
-        ];
-      in importDir ./modules ++ [
-        ({ ... }: { nixpkgs = { inherit overlays; }; })
-        inputs.nix-index-database.nixosModules.default
+  outputs = { self, nixpkgs, ... } @ inputs: 
+    let
+      lib = import ./lib nixpkgs.lib;
+      overlays = [
+        inputs.rust-overlay.overlays.default
+        (import ./pkgs/overlay.nix)
       ];
+    in
+    {
+      nixosConfigurations = lib.genNixOSHosts {
+        inherit self;
+        specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
+        modules = lib.getFilesRecursive ./modules ++ [
+          ({ ... }: { nixpkgs = { inherit overlays; }; })
+          inputs.nix-index-database.nixosModules.default
+        ];
+      };
     };
-  };
 }

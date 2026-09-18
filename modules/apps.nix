@@ -9,9 +9,6 @@
     kitty
     libreoffice-qt
     mpv
-    piper
-    qbittorrent
-    syncthing
     # onlyoffice-desktopeditors
     vesktop
     # yubioath-flutter
@@ -43,7 +40,6 @@
     htop
     hyperfine
     lazygit
-    # nvtopPackages.full
     onefetch
     pandoc
     ripgrep

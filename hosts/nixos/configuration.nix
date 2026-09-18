@@ -10,6 +10,16 @@
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
 
   hardware.wooting.enable = true;
+
+  users.users."alvaro".packages = with pkgs; [
+    piper
+    qbittorrent
+    syncthing
+  ];
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+  ];
+
   profiles = {
     games = {
       enable = true;

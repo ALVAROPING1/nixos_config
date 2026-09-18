@@ -38,12 +38,10 @@
     ffmpeg
     fzf
     htop
-    hyperfine
     lazygit
     onefetch
     pandoc
     ripgrep
-    samply
     starship
     tlrc
     typst

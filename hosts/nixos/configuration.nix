@@ -25,6 +25,7 @@
       enable = true;
       osu = true;
     };
+    perf-tools.enable = true;
     vm.enable = true;
   };
 

@@ -57,7 +57,6 @@
     gnumake
     imagemagick
     nodejs
-    rust-bin.stable.latest.default
     stow
     xclip
     yt-dlp

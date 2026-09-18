@@ -26,6 +26,7 @@
       osu = true;
     };
     perf-tools.enable = true;
+    rust.enable = true;
     vm.enable = true;
   };
 

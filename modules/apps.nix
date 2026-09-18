@@ -17,12 +17,7 @@
     # yubioath-flutter
   ];
   programs.firefox.enable = true;
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      input-overlay
-    ];
-  };
+  programs.obs-studio.enable = true;
   programs.yubikey-manager.enable = true;
   programs.gnupg.agent = {
     enable = true;

@@ -47,9 +47,7 @@
     typst
     zoxide
     # Python
-    python313
-    python313Packages.ipython
-    python313Packages.pip
+    (python3.withPackages (ps: [ ps.ipython ]))
     uv
     # Utils
     borgbackup

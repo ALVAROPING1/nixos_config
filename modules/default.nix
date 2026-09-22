@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # Bootloader.
@@ -52,6 +52,7 @@
     description = "Alvaro";
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     initialPassword = "changethis";
+    openssh.authorizedKeys.keyFiles = [ "${inputs.self}/secrets/id_rsa_yubikey.pub" ];
   };
 
   security.polkit.enable = true;

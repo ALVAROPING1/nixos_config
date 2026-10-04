@@ -28,6 +28,10 @@
     perf-tools.enable = true;
     rust.enable = true;
     vm.enable = true;
+    yubikey = {
+      enable = true;
+      management = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

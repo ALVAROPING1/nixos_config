@@ -11,11 +11,9 @@
     mpv
     # onlyoffice-desktopeditors
     vesktop
-    # yubioath-flutter
   ];
   programs.firefox.enable = true;
   programs.obs-studio.enable = true;
-  programs.yubikey-manager.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

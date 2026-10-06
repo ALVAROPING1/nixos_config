@@ -26,7 +26,11 @@
       osu = true;
     };
     perf-tools.enable = true;
-    rust.enable = true;
+    rust = {
+      enable = true;
+      toolchain = true;
+      utils = true;
+    };
     vm.enable = true;
     yubikey = {
       enable = true;

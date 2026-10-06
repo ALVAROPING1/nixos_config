@@ -13,24 +13,17 @@
     lua5_1
     luarocks
     # CLI/TUI
-    bat
     btop
-    delta
-    dysk
-    eza
     fastfetch
-    fd
     ffmpeg
     fzf
     htop
     lazygit
     onefetch
     pandoc
-    ripgrep
     starship
     tlrc
     typst
-    zoxide
     # Python
     (python3.withPackages (ps: [ ps.ipython ]))
     uv

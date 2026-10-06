@@ -1,19 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # GUI
-  users.users."alvaro".packages = with pkgs; [
-    gimp
-    inkscape
-    keepassxc
-    kitty
-    libreoffice-qt
-    mpv
-    # onlyoffice-desktopeditors
-    vesktop
-  ];
-  programs.firefox.enable = true;
-  programs.obs-studio.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

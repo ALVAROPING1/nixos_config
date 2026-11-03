@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   # Terminal
   environment.systemPackages = with pkgs; [
     # Editors

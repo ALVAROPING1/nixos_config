@@ -15,7 +15,6 @@
     htop
     lazygit
     onefetch
-    pandoc
     starship
     tlrc
     typst

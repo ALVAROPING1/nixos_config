@@ -24,6 +24,8 @@
     games = {
       enable = true;
       osu = true;
+      livesplit = true;
+      recording = true;
     };
     perf-tools.enable = true;
     rust = {

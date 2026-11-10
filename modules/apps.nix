@@ -3,10 +3,6 @@
 {
   # Terminal
   environment.systemPackages = with pkgs; [
-    # Editors
-    neovim
-    lua5_1
-    luarocks
     # CLI/TUI
     btop
     fastfetch

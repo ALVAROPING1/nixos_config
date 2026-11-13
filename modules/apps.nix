@@ -6,7 +6,6 @@
     # CLI/TUI
     btop
     fastfetch
-    ffmpeg
     fzf
     htop
     lazygit
@@ -18,14 +17,12 @@
     (python3.withPackages (ps: [ ps.ipython ]))
     uv
     # Utils
-    borgbackup
     gcc
     gnumake
     imagemagick
     nodejs
     stow
     xclip
-    yt-dlp
     # Nix
     deadnix
     nixd

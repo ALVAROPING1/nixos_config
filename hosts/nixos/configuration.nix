@@ -17,7 +17,10 @@
     syncthing
   ];
   environment.systemPackages = with pkgs; [
+    borgbackup
+    ffmpeg
     nvtopPackages.nvidia
+    yt-dlp
   ];
 
   profiles = {

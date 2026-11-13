@@ -24,14 +24,11 @@
     # networking.firewall.enable = false;
   };
 
-  # Enable the OpenSSH daemon
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-    };
+  # Configure the OpenSSH daemon
+  services.openssh.settings = {
+    PasswordAuthentication = false;
+    KbdInteractiveAuthentication = false;
+    PermitRootLogin = "no";
   };
 
   services.resolved.enable = true;

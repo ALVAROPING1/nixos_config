@@ -24,6 +24,7 @@
   ];
 
   profiles = {
+    desktop.kde.enable = true;
     games = {
       enable = true;
       osu = true;

@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Bootloader.
@@ -18,8 +23,10 @@
   # Select internationalisation properties
   console.keyMap = "es"; # Configure console keymap
   i18n =
-    let locale = "es_ES.UTF-8";
-    in {
+    let
+      locale = "es_ES.UTF-8";
+    in
+    {
       defaultLocale = locale;
       extraLocaleSettings = {
         LC_ADDRESS = locale;
@@ -52,9 +59,12 @@
     description = "Alvaro";
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     initialPassword = "changethis";
-    openssh.authorizedKeys.keyFiles = lib.map
-      (serial: "${inputs.self}/secrets/id_ed25519_sk${serial}.pub" )
-      [ "22912143" "22912291" ];
+    openssh.authorizedKeys.keyFiles =
+      lib.map (serial: "${inputs.self}/secrets/id_ed25519_sk${serial}.pub")
+        [
+          "22912143"
+          "22912291"
+        ];
   };
 
   security.polkit.enable = true;

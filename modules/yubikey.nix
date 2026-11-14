@@ -7,7 +7,9 @@ in
   options = {
     profiles.yubikey = {
       enable = lib.mkEnableOption "yubikey profile";
-      touch-notify = lib.mkEnableOption "touch request notifications" // { default = true; };
+      touch-notify = lib.mkEnableOption "touch request notifications" // {
+        default = true;
+      };
       management = lib.mkEnableOption "management of yubikeys";
     };
   };

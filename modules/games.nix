@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.profiles.games;
@@ -13,33 +18,35 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable (lib.mkMerge [
-    {
-      programs.steam = {
-        enable = true;
-        package = pkgs.steam.override {
-          extraEnv = {
-            MANGOHUD = true;
-            OBS_VKCAPTURE = true;
+  config = lib.mkIf cfg.enable (
+    lib.mkMerge [
+      {
+        programs.steam = {
+          enable = true;
+          package = pkgs.steam.override {
+            extraEnv = {
+              MANGOHUD = true;
+              OBS_VKCAPTURE = true;
+            };
           };
         };
-      };
-      programs.livesplit-one-druid.enable = cfg.livesplit;
-      users.users."alvaro".packages = with pkgs; [
-        goverlay
-      ];
-    }
+        programs.livesplit-one-druid.enable = cfg.livesplit;
+        users.users."alvaro".packages = with pkgs; [
+          goverlay
+        ];
+      }
 
-    (lib.mkIf cfg.recording {
-      programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
-        input-overlay
-        obs-vkcapture
-      ];
-    })
+      (lib.mkIf cfg.recording {
+        programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [
+          input-overlay
+          obs-vkcapture
+        ];
+      })
 
-    (lib.mkIf cfg.osu {
-      users.users."alvaro".packages = [ pkgs.osu-lazer-bin ];
-      hardware.opentabletdriver.enable = true;
-    })
-  ]);
+      (lib.mkIf cfg.osu {
+        users.users."alvaro".packages = [ pkgs.osu-lazer-bin ];
+        hardware.opentabletdriver.enable = true;
+      })
+    ]
+  );
 }

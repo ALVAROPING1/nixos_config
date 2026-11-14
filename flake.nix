@@ -18,20 +18,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: 
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       lib = import ./lib nixpkgs.lib;
       overlays = [
         inputs.rust-overlay.overlays.default
         (import ./pkgs/overlay.nix)
       ];
+      flake_path = "/home/alvaro/nixos";
     in
     {
       nixosConfigurations = lib.genNixOSHosts {
         inherit self;
-        specialArgs = { inherit inputs; flake_path = "/home/alvaro/nixos"; };
+        specialArgs = { inherit inputs flake_path; };
         modules = lib.getFilesRecursive ./modules ++ [
-          ({ ... }: { nixpkgs = { inherit overlays; }; })
+          { nixpkgs = { inherit overlays; }; }
           inputs.nix-index-database.nixosModules.default
           inputs.bootvine.nixosModules.default
         ];

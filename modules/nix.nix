@@ -6,7 +6,10 @@
   nix = {
     settings = {
       # Enable flake support
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       # Extra binary caches
       substituters = [
         "https://nix-community.cachix.org"
@@ -29,6 +32,6 @@
   # Allow unpatched dynamic libraries for generic distros
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [];
+    libraries = with pkgs; [ ];
   };
 }

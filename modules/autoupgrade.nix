@@ -1,11 +1,17 @@
-{ config, pkgs, flake_path, ... }:
+{
+  config,
+  pkgs,
+  flake_path,
+  ...
+}:
 
 {
   system.autoUpgrade = {
     enable = false;
     flags = [
-      "--update-input" "nixpkgs" # Update nixpkgs
-      "--commit-lock-file" # Create a commit in the repo
+      "--update-input"
+      "nixpkgs"
+      "--commit-lock-file"
       "--print-build-logs"
     ];
     flake = flake_path;
@@ -28,7 +34,8 @@
     let
       name = "NixOS Auto-Upgrade";
       email = "root@${config.networking.hostName}";
-    in {
+    in
+    {
       GIT_AUTHOR_NAME = name;
       GIT_AUTHOR_EMAIL = email;
       GIT_COMMITTER_NAME = name;

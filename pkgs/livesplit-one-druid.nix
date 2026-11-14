@@ -1,7 +1,8 @@
-{ rustPlatform
-, fetchFromGitHub
-, pkg-config
-, wrapGAppsHook3
+{
+  rustPlatform,
+  fetchFromGitHub,
+  pkg-config,
+  wrapGAppsHook3,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -17,8 +18,10 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-Veb61MtyJNH0fKodphHwfkXRjIW7vIzOJBPH9CfEIak=";
 
-  # wrapGAppsHook3 fixes GTK-3 errors
-  nativeBuildInputs = [ pkg-config wrapGAppsHook3 ];
+  nativeBuildInputs = [
+    pkg-config
+    wrapGAppsHook3 # fixes GTK-3 errors
+  ];
 
   meta = {
     description = "Prototype Desktop version of LiveSplit One";

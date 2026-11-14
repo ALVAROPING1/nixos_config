@@ -6,7 +6,7 @@
     # use networkmanager
     networkmanager = {
       enable = true;
-      plugins = with pkgs; [];
+      plugins = with pkgs; [ ];
     };
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # `dhcpcd` conflicts with NetworkManager's `dhclient`, as they try to bind

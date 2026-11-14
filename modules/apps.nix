@@ -26,7 +26,7 @@
     # Nix
     deadnix
     nixd
-    # nixfmt-rs
+    nixfmt-rs
     statix
   ];
 

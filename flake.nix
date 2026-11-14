@@ -11,6 +11,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: 
@@ -28,6 +33,7 @@
         modules = lib.getFilesRecursive ./modules ++ [
           ({ ... }: { nixpkgs = { inherit overlays; }; })
           inputs.nix-index-database.nixosModules.default
+          inputs.bootvine.nixosModules.default
         ];
       };
     };

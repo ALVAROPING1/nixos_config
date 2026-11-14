@@ -60,11 +60,10 @@
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user
     initialPassword = "changethis";
     openssh.authorizedKeys.keyFiles =
-      lib.map (serial: "${inputs.self}/secrets/id_ed25519_sk${serial}.pub")
-        [
-          "22912143"
-          "22912291"
-        ];
+      let
+        dir = "${inputs.self}/secrets/ssh";
+      in
+      map (file: "${dir}/${file}") (lib.attrNames (lib.readDir dir));
   };
 
   security.polkit.enable = true;

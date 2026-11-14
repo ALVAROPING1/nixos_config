@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  flake_path,
-  ...
-}:
+{ config, flake_path, ... }:
 
 {
   system.autoUpgrade = {

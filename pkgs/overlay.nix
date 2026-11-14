@@ -1,3 +1,3 @@
-final: prev: {
+_final: prev: {
   livesplit-one-druid = prev.callPackage ./livesplit-one-druid.nix { };
 }

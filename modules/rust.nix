@@ -31,6 +31,7 @@ in
           bat
           delta
           dysk
+          dua
           eza
           fd
           ripgrep

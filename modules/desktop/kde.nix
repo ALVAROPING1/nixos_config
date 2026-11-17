@@ -31,6 +31,7 @@ in
       kdePackages.discover
       kdePackages.dolphin
       kdePackages.gwenview
+      kdePackages.isoimagewriter
       kdePackages.kcalc
       kdePackages.kcharselect
       kdePackages.kfind

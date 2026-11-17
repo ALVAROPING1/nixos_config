@@ -9,6 +9,10 @@
   # v32n = all codepages, 32px, normal
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
 
+  # Disable swap partitions for now
+  boot.kernelParams = [ "systemd.swap=0" ];
+  zramSwap.enable = true;
+
   hardware.wooting.enable = true;
 
   users.users."alvaro".packages = with pkgs; [

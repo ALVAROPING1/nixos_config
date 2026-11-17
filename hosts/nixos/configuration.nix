@@ -29,6 +29,7 @@
 
   profiles = {
     desktop.kde.enable = true;
+    desktop.boot-graph = true;
     games = {
       enable = true;
       osu = true;

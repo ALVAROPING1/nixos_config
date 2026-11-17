@@ -21,5 +21,8 @@ in
       };
     in
       lib.mkForce pkgs-unstable.linuxPackages_latest;
+
+    # Enable hardware acceleration (NVEnc)
+    programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };
   };
 }

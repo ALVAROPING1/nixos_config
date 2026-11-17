@@ -31,6 +31,7 @@
       livesplit = true;
       recording = true;
     };
+    nvidia.enable = true;
     perf-tools.enable = true;
     rust = {
       enable = true;

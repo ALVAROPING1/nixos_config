@@ -2,7 +2,6 @@
 
 {
   system.autoUpgrade = {
-    enable = false;
     flags = [
       "--update-input"
       "nixpkgs"

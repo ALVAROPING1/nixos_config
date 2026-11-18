@@ -17,27 +17,23 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable (
-    lib.mkMerge [
-      (lib.mkIf cfg.toolchain {
-        environment.systemPackages = with pkgs; [
-          rust-bin.stable.latest.default
-          cargo-nextest
-          wasm-pack
-        ];
-      })
-      (lib.mkIf cfg.utils {
-        environment.systemPackages = with pkgs; [
-          bat
-          delta
-          dysk
-          dua
-          eza
-          fd
-          ripgrep
-          zoxide
-        ];
-      })
-    ]
-  );
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages =
+      with pkgs;
+      lib.optionals cfg.toolchain [
+        rust-bin.stable.latest.default
+        cargo-nextest
+        wasm-pack
+      ]
+      ++ lib.optionals cfg.utils [
+        bat
+        delta
+        dysk
+        dua
+        eza
+        fd
+        ripgrep
+        zoxide
+      ];
+  };
 }

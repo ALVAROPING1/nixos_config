@@ -15,25 +15,20 @@ in
       pandoc = lib.mkEnableOption "pandoc";
     };
   };
-  config = lib.mkIf cfg.enable (
-    lib.mkMerge [
-      {
-        environment.systemPackages = with pkgs; [
-          (texliveBasic.withPackages (
-            ps: with ps; [
-              latexmk
-              biber
-              biblatex-ieee
-              collection-latexextra
-              collection-plaingeneric
-              collection-luatex
-              collection-mathscience
-              collection-langspanish
-            ]
-          ))
-        ];
-      }
-      (lib.mkIf cfg.pandoc { environment.systemPackages = [ pkgs.pandoc ]; })
-    ]
-  );
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      (pkgs.texliveBasic.withPackages (
+        ps: with ps; [
+          latexmk
+          biber
+          biblatex-ieee
+          collection-latexextra
+          collection-plaingeneric
+          collection-luatex
+          collection-mathscience
+          collection-langspanish
+        ]
+      ))
+    ] ++ lib.optional cfg.pandoc pkgs.pandoc;
+  };
 }

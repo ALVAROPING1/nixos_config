@@ -1,4 +1,10 @@
-{ pkgs, lib, inputs, config, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  lib,
+  config,
+  ...
+}:
 
 let
   cfg = config.profiles.nvidia;
@@ -14,13 +20,7 @@ in
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia.open = true;
     # nvidia driver doesn't built on stable's latest kernel
-    boot.kernelPackages = let
-      pkgs-unstable = import inputs.nixpkgs-unstable {
-        system = pkgs.stdenv.hostPlatform.system;
-        config.allowUnfree = true;
-      };
-    in
-      lib.mkForce pkgs-unstable.linuxPackages_latest;
+    boot.kernelPackages = lib.mkForce pkgs-unstable.linuxPackages_latest;
 
     # Enable hardware acceleration (NVEnc)
     programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };

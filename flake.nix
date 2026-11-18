@@ -35,6 +35,18 @@
         specialArgs = { inherit inputs flake_path; };
         modules = lib.getFilesRecursive ./modules ++ [
           { nixpkgs = { inherit overlays; }; }
+          (
+            # Add pkgs-unstable arg to all modules, copying config from pkgs
+            { pkgs, ... }:
+            {
+              _module.args = {
+                pkgs-unstable = import inputs.nixpkgs-unstable {
+                  system = pkgs.stdenv.hostPlatform.system;
+                  config.allowUnfree = pkgs.config.allowUnfree;
+                };
+              };
+            }
+          )
           inputs.nix-index-database.nixosModules.default
           inputs.bootvine.nixosModules.default
         ];

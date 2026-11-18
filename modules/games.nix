@@ -46,6 +46,7 @@ in
       (lib.mkIf cfg.osu {
         users.users."alvaro".packages = [ pkgs.osu-lazer-bin ];
         hardware.opentabletdriver.enable = true;
+        environment.systemPackages = lib.optional config.profiles.desktop.kde.enable pkgs.colortune;
       })
     ]
   );

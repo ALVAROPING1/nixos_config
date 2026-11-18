@@ -12,11 +12,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    bootvine = {
-      url = "git+https://codeberg.org/wvhulle/bootvine";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
   };
 
   outputs =
@@ -48,7 +43,6 @@
             }
           )
           inputs.nix-index-database.nixosModules.default
-          inputs.bootvine.nixosModules.default
         ];
       };
     };

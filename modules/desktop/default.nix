@@ -12,12 +12,10 @@ in
   options = {
     profiles.desktop = {
       enable = lib.mkEnableOption "desktop machine profile (i.e. not headless)";
-      boot-graph = lib.mkEnableOption "boot graph (bootvine)";
     };
   };
 
   config = lib.mkIf cfg.enable {
-    services.bootvine.enable = cfg.boot-graph;
     # Use latest kernel.
     boot.kernelPackages = pkgs.linuxPackages_latest;
 

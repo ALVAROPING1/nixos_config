@@ -47,6 +47,24 @@ in
         users.users."alvaro".packages = [ pkgs.osu-lazer-bin ];
         hardware.opentabletdriver.enable = true;
         environment.systemPackages = lib.optional config.profiles.desktop.kde.enable pkgs.colortune;
+        # Fix for OTD crashing on boot
+        # TODO: remove on the next version of NixOS
+        # SEE: https://github.com/NixOS/nixpkgs/pull/543033
+        systemd.user.services.opentabletdriver = {
+          unitConfig = {
+            After = "graphical-session.target";
+            ConditionEnvironment = [
+              "|WAYLAND_DISPLAY"
+              "|DISPLAY"
+            ];
+          };
+          serviceConfig.ExecStartPre = lib.mkForce (pkgs.writeShellScript "poll-for-non-gdm-greeter-display" ''
+            if [[ "$USER" = "gdm-greeter"* \
+                || ( "$${XDG_SESSION_TYPE}" = wayland && -z "$${WAYLAND_DISPLAY}" ) ]]; then
+              exit 1
+            fi
+          '');
+        };
       })
     ]
   );

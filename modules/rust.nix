@@ -28,8 +28,9 @@ in
       ++ lib.optionals cfg.utils [
         bat
         delta
-        dysk
+        difftastic
         dua
+        dysk
         eza
         fd
         ripgrep

@@ -44,7 +44,7 @@ in
       })
 
       (lib.mkIf cfg.osu {
-        users.users."alvaro".packages = [ pkgs.osu-lazer-bin ];
+        users.users."alvaro".packages = [ (pkgs.osu-lazer-bin.override { nativeWayland = true; }) ];
         hardware.opentabletdriver.enable = true;
         environment.systemPackages = lib.optional config.profiles.desktop.kde.enable pkgs.colortune;
         # Fix for OTD crashing on boot

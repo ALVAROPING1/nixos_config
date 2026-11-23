@@ -30,6 +30,7 @@ in
         delta
         difftastic
         dua
+        dust
         dysk
         eza
         fd

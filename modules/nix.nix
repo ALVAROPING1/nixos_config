@@ -32,6 +32,8 @@
   # Allow unpatched dynamic libraries for generic distros
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [ ];
+    libraries = with pkgs; [
+      icu
+    ];
   };
 }
